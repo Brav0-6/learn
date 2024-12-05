@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" >
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.navbar {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu ul li {
+    margin: 0 15px;
+}
+
+.navbar-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-menu ul li a:hover {
+    color: #ff7e5f;
+}
+
+.navbar-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-symbol {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logout-button {
+    background-color: #ff7e5f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #eb6753;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.profile-info {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 400px;
+    padding: 40px;
+    text-align: center;
+}
+
+.profile-pic img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">BrandName</a>
+        </div>
+        <div class="navbar-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                
+            </ul>
+        </div>
+        <div class="navbar-profile">
+            <img src="profile-symbol.jpg" alt="Profile Symbol" class="profile-symbol">
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="profile-info">
+            <div class="profile-pic">
+                <img src="profile-pic.jpg" alt="Profile Picture" id="profile-pic">
+            </div>
+            <div class="profile-details">
+                <p><strong>Username:</strong> <span id="username">johndoe</span></p>
+                <p><strong>First Name:</strong> <span id="first-name">John</span></p>
+                <p><strong>Last Name:</strong> <span id="last-name">Doe</span></p>
+                <p><strong>Email:</strong> <span id="email">johndoe@example.com</span></p>
+                <p><strong>Date of Birth:</strong> <span id="dob">January 1, 1990</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            // Simulating a logout redirect for this static example
+            alert('You have been logged out.');
+            window.location.href = "login.html";
+        }
+
+        // Example user data (this would be fetched from your backend in a real application)
+        const userData = {
+            username: "johndoe",
+            firstName: "John",
+            lastName: "Doe",
+            email: "johndoe@example.com",
+            dob: "January 1, 1990",
+            profilePic: "profile-pic.jpg"
+        };
+
+        // Function to populate the profile page with user data
+        function populateProfile(data) {
+            document.getElementById('username').innerText = data.username;
+            document.getElementById('first-name').innerText = data.firstName;
+            document.getElementById('last-name').innerText = data.lastName;
+            document.getElementById('email').innerText = data.email;
+            document.getElementById('dob').innerText = data.dob;
+            document.getElementById('profile-pic').src = data.profilePic;
+        }
+
+        // Call the function with the example data
+        populateProfile(userData);
+    </script>
+</body>
+</html>
+
